@@ -25,12 +25,12 @@ const DarkMan = new Discord.Client();
 const prefix = "S!";
 
 
-DarkMan.login("OTE3ODE5NjQxNTU0OTUyMjYy.Ya-QJg.M6UhLCe6XIy9EkZqUfnJYl0ejY0");
-DarkMan.on("ready", async () => {
+Hardi.login("");
+Hardi.on("ready", async () => {
   console.log(`Logged in as ${DarkMan.user.username}!`);
-  DarkMan.user.setStatus("ONLINE");
-  DarkMan.user.setActivity(`${prefix}help`, { type: "WATCHING" });
-  DarkMan.guilds.cache.forEach(g => {
+  Hardi.user.setStatus("ONLINE");
+  Hardi.user.setActivity(`${prefix}help`, { type: "WATCHING" });
+  Hardi.guilds.cache.forEach(g => {
     if (g.member(DarkMan.user).hasPermission("ADMINISTRATOR")) {
       g.fetchInvites().then(guildInvites => {});
     }
@@ -39,7 +39,7 @@ DarkMan.on("ready", async () => {
 
 //////////
 
-DarkMan.on("message", message => {
+Hardi.on("message", message => {
 if (message.content === prefix +"help") {
 const embed = new Discord.MessageEmbed()
 .setColor("BLACK")
@@ -65,7 +65,7 @@ const embed = new Discord.MessageEmbed()
 //////////////
 
 /////////// code welcome
-DarkMan.on("guildMemberAdd", member => {
+Hardi.on("guildMemberAdd", member => {
   const channel = member.guild.channels.cache.find(
     channel => channel.name === "welcome"
   );
@@ -103,7 +103,7 @@ DarkMan.on("guildMemberAdd", member => {
   channel.send(joinembed);
 });
 ////////////// code left
-DarkMan.on("guildMemberRemove", member => {
+Hardi.on("guildMemberRemove", member => {
   const channel = member.guild.channels.cache.find(
     channel => channel.name === "left"
   );
@@ -116,7 +116,7 @@ DarkMan.on("guildMemberRemove", member => {
       "https://thumbs.gfycat.com/ChiefBiodegradableAmericanalligator-size_restricted.gif"
     )
     .setColor("RANDOM")
-    .setThumbnail(DarkMan)
+    .setThumbnail()
     .addField("**name :**", `${member}`)
     .addField("Bye Bye", `!`)
     .addField("👋;(",   "bye bye")
@@ -129,7 +129,7 @@ DarkMan.on("guildMemberRemove", member => {
   channel.send(joinembed);
 });
 /////////////// code embed
-DarkMan.on("guildMemberAdd", member => {
+Hardi.on("guildMemberAdd", member => {
   const joinembed = new Discord.MessageEmbed()
 
     .setColor("RANDOM")
